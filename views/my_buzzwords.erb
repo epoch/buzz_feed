@@ -1,0 +1,10 @@
+<h1>my buzzwords</h1>
+
+<form action="">
+  <input type="text">
+  <button>post new buzz word</button>
+</form>
+
+<% @buzz_words.each do |word| %>
+  <p><%= word["word"] %></p>
+<% end %>
