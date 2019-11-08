@@ -1,11 +1,3 @@
-def run_sql(sql, params = [])
-  conn = PG.connect(ENV['DATABASE_URL'] || { dbname: "buzz_feed" })
-  conn.prepare(sql, sql)
-  records = conn.exec_prepared(sql, params)
-  conn.close
-  return records
-end
-
 def all_buzzwords()
   return run_sql("SELECT * FROM buzzwords;")
 end
