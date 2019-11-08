@@ -6,6 +6,16 @@
   <link rel='stylesheet' href='/stylesheets/main.css'>
 </head>
 <body>
+  <% if logged_in? %>
+  <header>
+    logged in as <%= current_user["email"] %>
+    <form action="/logout" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <button>logout</button>
+    </form>
+  </header>
+  <% end %>
+
   <h1>buzz feed 2.0</h1>
 
   <nav>

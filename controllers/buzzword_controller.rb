@@ -1,5 +1,5 @@
 get '/buzzwords' do
-  @buzz_words = all_buzzwords
+  @buzzwords = all_buzzwords
   erb :index
 end
 
@@ -8,16 +8,22 @@ get '/buzzwords/new' do
 end
 
 post '/buzzwords' do
-  create_buzzword(params[:word], params[:description])
+  redirect "/login" unless logged_in?
+  create_buzzword(params[:word], params[:description], current_user["id"])
   redirect "/buzzwords"
 end
 
+get '/buzzwords/:id/edit' do
+  @buzzword = find_one_buzzword(params[:id])
+  erb :edit
+end
+
 get '/buzzwords/:id' do
-  @buzz_word = find_one_buzzword(params[:id])
+  @buzzword = find_one_buzzword(params[:id])
   erb :show
 end
 
 get '/my_buzzwords' do
-  @buzz_words = all_buzzwords_by_user_id(1)
+  @buzzwords = all_buzzwords_by_user_id(1)
   erb :my_buzzwords
 end

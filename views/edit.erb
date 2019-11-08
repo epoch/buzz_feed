@@ -1,0 +1,7 @@
+<form action="/buzzwords" method="post">
+  <label for="">word</label>
+  <input type="text" name="word" value="<%= @buzzword["word"] %>">
+  <label for="">description</label>
+  <textarea name="description"><%= @buzzword["description"] %></textarea>
+  <button>create</button>
+</form>

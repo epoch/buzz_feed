@@ -1,7 +1,8 @@
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
   email TEXT,
-  password_digest TEXT
+  password_digest TEXT,
+  bio TEXT
 );
 
 CREATE TABLE buzzwords (

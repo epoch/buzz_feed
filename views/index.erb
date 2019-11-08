@@ -1,5 +1,8 @@
 <h1>all buzzwords</h1>
 
-<% @buzz_words.each do |word| %>
-  <p><%= word["word"] %></p>
+<% @buzzwords.each do |word| %>
+  <p>
+    <%= word["word"] %> 
+    <a href="/buzzwords/<%= word["id"]%>/edit">edit</a>
+  </p>
 <% end %>

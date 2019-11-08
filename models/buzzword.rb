@@ -18,6 +18,7 @@ def all_buzzwords_by_user_id(id)
   return run_sql("SELECT * FROM buzzwords where user_id = $1;", [id])
 end
 
-def create_buzzword(word, description)
-  return run_sql("INSERT INTO buzzwords (word, description) VALUES ($1, $2) returning id;", [word, description]);
+def create_buzzword(word, description, user_id)
+  sql = "INSERT INTO buzzwords (word, description, user_id) VALUES ($1, $2, $3) returning id;"
+  return run_sql(sql, [word, description, user_id]);
 end
