@@ -1,6 +1,14 @@
 require 'sinatra'
-require 'sinatra/reloader'
 require 'pg'
+
+ROOT = File.expand_path(__dir__)
+
+if settings.development?
+  require 'sinatra/reloader'
+  also_reload File.join(ROOT, "helpers/*")
+  also_reload File.join(ROOT, "models/*")
+  also_reload File.join(ROOT, "controllers/*")
+end
 
 enable :sessions
 
